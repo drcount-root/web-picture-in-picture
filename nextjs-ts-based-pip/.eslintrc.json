@@ -1,0 +1,9 @@
+"plugins": ["next"],
+"parser": "@typescript-eslint/parser",
+"extends": [
+  "plugin:next/recommended",
+  "eslint:recommended",
+  "plugin:@typescript-eslint/recommended"
+]{
+  "extends": "next/core-web-vitals"
+}
