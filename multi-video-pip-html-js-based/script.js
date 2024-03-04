@@ -5,8 +5,6 @@ const ctx = canvas.getContext("2d");
 const canvas1 = document.createElement("canvas");
 const ctx1 = canvas1.getContext("2d");
 
-let pipWindow;
-
 const mainVideos = document.querySelectorAll(".main_video");
 
 const ctxPip = async () => {
@@ -15,16 +13,16 @@ const ctxPip = async () => {
 };
 
 const enterPip = async () => {
-  pipWindow = ctxPip();
+  const pipWindow = ctxPip();
 
   // video 1
   mainVideos[0].play().then(() => {
-    const drawFrame1 = () => {
+    const drawFrame = () => {
       ctx.drawImage(mainVideos[0], 0, 0, canvas.width, canvas.height);
-      requestAnimationFrame(drawFrame1);
+      requestAnimationFrame(drawFrame);
     };
 
-    drawFrame1();
+    drawFrame();
   });
 
   // video 2
