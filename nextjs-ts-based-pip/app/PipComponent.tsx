@@ -62,28 +62,22 @@ const PipComponent = () => {
       a?.video?.play().then(() => {
         let theContext: any;
         let theVideo: any;
-        let w: number;
-        let x: number;
         let y: number;
         let z: number;
 
         if (a?.id === 1 && ctx) {
           theContext = ctx;
           theVideo = videosAll[0];
-          w = 0;
-          x = 0;
           y = canvas.width;
           z = canvas.height;
         } else {
           theContext = ctx1;
           theVideo = videosAll[1];
-          w = 0;
-          x = 0;
           y = canvas1.width;
           z = canvas1.height;
         }
         const drawFrame = () => {
-          theContext?.drawImage(theVideo, w, x, y, z);
+          theContext?.drawImage(theVideo, 0, 0, y, z);
           requestAnimationFrame(drawFrame);
         };
 
