@@ -35,27 +35,32 @@ const enterPip = async () => {
     drawFrame2();
   });
 
-  function combineCanvasesWithBlending(canvas1, canvas2) {
-    // Create a new canvas element
-    var combinedCanvas = document.createElement("canvas");
-    var context = combinedCanvas.getContext("2d");
-
-    context?.drawImage(canvas1, 0, 0);
-    // context?.drawImage(canvas1, 0, 0);
-    return combinedCanvas;
-  }
-
-  const toRenderInPipWondow = combineCanvasesWithBlending(canvas, canvas1);
-
-  // document?.body?.append(canvas);
-  // document?.body?.append(canvas1);
-
-  console.log("toRenderInPipWondow", toRenderInPipWondow);
-
-  document?.body?.append(toRenderInPipWondow);
-
-  pipWindow?.document?.body?.append(toRenderInPipWondow);
+  document?.body?.append(canvas);
+  document?.body?.append(canvas1);
 
   // pipWindow?.document?.body?.append(canvas);
   // pipWindow?.document?.body?.append(canvas1);
+
+
+  // ############################################################
+
+  const pip = document.querySelector(".vsc-initialized");
+  console.log("pip ", pip);
+
+  let stream = canvas?.captureStream();
+  console.log("stream ", stream);
+
+  mainVideos[0].srcObject = stream;
+
+  pipWindow?.document?.body?.append(canvas);
+
+
+  // const canvas2 = document?.createElement("canvas");
+  // const context2 = canvas2?.getContext("2d");
+
+  // context2?.drawImage(canvas, 0, 0);
+  // context2?.drawImage(canvas1, 0, 0);
+
+  // document?.body?.append(canvas2);
+  // pipWindow?.document?.body?.append( );
 };
