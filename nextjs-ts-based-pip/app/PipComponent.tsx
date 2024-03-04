@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { ctxPip } from "../utils/pipWindow";
+import Video from "./Video";
 
 const videos = [
   {
@@ -22,32 +23,66 @@ const PipComponent = () => {
   }
 
   const enterPip = async () => {
-    console.log(videosAll[0]);
+    console.log("check", videosAll);
 
-    pipWindow = ctxPip();
+    // pipWindow = ctxPip();
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+    // canvas.style.display = "flex";
+    // canvas.style.flexDirection = "column";
 
     videosAll[0].play().then(() => {
       const drawFrame = () => {
         ctx?.drawImage(videosAll[0], 0, 0, canvas.width, canvas.height);
-        requestAnimationFrame(videosAll[0]);
+        requestAnimationFrame(drawFrame);
       };
 
       drawFrame();
     });
 
-    pipWindow?.document?.body?.append(canvas);
+    const canvas1 = document.createElement("canvas");
+    const ctx1 = canvas1.getContext("2d");
+
+    videosAll[1].play().then(() => {
+      const drawFrame = () => {
+        ctx1?.drawImage(videosAll[1], 0, 0, canvas1.width, canvas1.height);
+
+        requestAnimationFrame(drawFrame);
+      };
+
+      drawFrame();
+    });
+
+    // videosAll[1].play().then(() => {
+    //   const drawFrame = () => {
+    //     ctx?.drawImage(
+    //       videosAll[1],
+    //       0,
+    //       canvas.height / 2,
+    //       canvas.width,
+    //       canvas.height / 2
+    //     );
+
+    //     requestAnimationFrame(drawFrame);
+    //   };
+
+    //   drawFrame();
+    // });
+
+    document?.body?.append(canvas);
+    document?.body?.append(canvas1);
+
+    // pipWindow?.document?.body?.append(canvas);
   };
+
+  console.log("check", enterPip);
 
   return (
     <>
       <div>
         {videos?.map((video: any) => (
           <div key={video.id}>
-            <video className="video_class" autoPlay muted loop>
-              <source src={video.video_src} type="video/mp4" />
-            </video>
+            <Video video={video} />
           </div>
         ))}
       </div>
