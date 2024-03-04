@@ -37,7 +37,13 @@ canvas.style.flexDirection = "column";
 
 const mainVideos = document.querySelectorAll(".main_video");
 
+const ctxPip = async () => {
+  const pipWindow = await documentPictureInPicture?.requestWindow();
+  return pipWindow;
+};
+
 const enterPip = async () => {
+  const pipWindow = ctxPip();
 
   // video 1
   mainVideos[0].play().then(() => {
@@ -52,12 +58,20 @@ const enterPip = async () => {
   // video 2
   mainVideos[1].play().then(() => {
     const drawFrame2 = () => {
-      ctx.drawImage(mainVideos[1], canvas.width / 2, 0, canvas.width / 2, canvas.height);
+      ctx.drawImage(
+        mainVideos[1],
+        canvas.width / 2,
+        0,
+        canvas.width / 2,
+        canvas.height
+      );
       requestAnimationFrame(drawFrame2);
     };
 
     drawFrame2();
   });
 
-  document.body.append(canvas);
+  document?.body?.append(canvas);
+
+  pipWindow?.document?.body?.append(canvas);
 };
