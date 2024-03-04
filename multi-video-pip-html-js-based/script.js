@@ -36,13 +36,13 @@ const enterPip = async () => {
   });
 
   function combineCanvasesWithBlending(canvas1, canvas2) {
-    const concatenatedCanvas = document.createElement("canvas");
-    const concatenatedCtx = concatenatedCanvas.getContext("2d");
+    // Create a new canvas element
+    var combinedCanvas = document.createElement("canvas");
+    var context = combinedCanvas.getContext("2d");
 
-    concatenatedCtx.drawImage(canvas1, 0, 0);
-    concatenatedCtx.drawImage(canvas2, canvas1.width, 0);
-
-    return concatenatedCanvas;
+    context?.drawImage(canvas1, 0, 0);
+    // context?.drawImage(canvas1, 0, 0);
+    return combinedCanvas;
   }
 
   const toRenderInPipWondow = combineCanvasesWithBlending(canvas, canvas1);
@@ -55,7 +55,6 @@ const enterPip = async () => {
   document?.body?.append(toRenderInPipWondow);
 
   pipWindow?.document?.body?.append(toRenderInPipWondow);
-
 
   // pipWindow?.document?.body?.append(canvas);
   // pipWindow?.document?.body?.append(canvas1);
