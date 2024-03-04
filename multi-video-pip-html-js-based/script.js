@@ -38,15 +38,10 @@ const enterPip = async () => {
   });
 
   document?.body?.append(canvas);
-  document?.body?.append(canvas1);
+  // document?.body?.append(canvas1);
 
-  // pipWindow?.document?.body?.append(canvas);
+  pipWindow?.document?.body?.append(canvas);
   // pipWindow?.document?.body?.append(canvas1);
-
-  const pipWin = document.querySelector(".vsc-initialized");
-  console.log(pipWin);
-
-  pipWindow?.document?.body?.append(pipWin);
 
   // ############################################################
 
