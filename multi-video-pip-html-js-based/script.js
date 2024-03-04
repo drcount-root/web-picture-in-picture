@@ -5,6 +5,8 @@ const ctx = canvas.getContext("2d");
 const canvas1 = document.createElement("canvas");
 const ctx1 = canvas1.getContext("2d");
 
+let pipWindow;
+
 const mainVideos = document.querySelectorAll(".main_video");
 
 const ctxPip = async () => {
@@ -13,7 +15,7 @@ const ctxPip = async () => {
 };
 
 const enterPip = async () => {
-  const pipWindow = ctxPip();
+  pipWindow = ctxPip();
 
   // video 1
   mainVideos[0].play().then(() => {
@@ -38,22 +40,10 @@ const enterPip = async () => {
   document?.body?.append(canvas);
   document?.body?.append(canvas1);
 
-  // pipWindow?.document?.body?.append(canvas);
+  pipWindow?.document?.body?.append(canvas);
   // pipWindow?.document?.body?.append(canvas1);
 
-
   // ############################################################
-
-  const pip = document.querySelector(".vsc-initialized");
-  console.log("pip ", pip);
-
-  let stream = canvas?.captureStream();
-  console.log("stream ", stream);
-
-  mainVideos[0].srcObject = stream;
-
-  pipWindow?.document?.body?.append(canvas);
-
 
   // const canvas2 = document?.createElement("canvas");
   // const context2 = canvas2?.getContext("2d");
