@@ -35,9 +35,28 @@ const enterPip = async () => {
     drawFrame2();
   });
 
-  document?.body?.append(canvas);
-  document?.body?.append(canvas1);
+  function combineCanvasesWithBlending(canvas1, canvas2) {
+    const concatenatedCanvas = document.createElement("canvas");
+    const concatenatedCtx = concatenatedCanvas.getContext("2d");
 
-  pipWindow?.document?.body?.append(canvas);
-  pipWindow?.document?.body?.append(canvas1);
+    concatenatedCtx.drawImage(canvas1, 0, 0);
+    concatenatedCtx.drawImage(canvas2, canvas1.width, 0);
+
+    return concatenatedCanvas;
+  }
+
+  const toRenderInPipWondow = combineCanvasesWithBlending(canvas, canvas1);
+
+  // document?.body?.append(canvas);
+  // document?.body?.append(canvas1);
+
+  console.log("toRenderInPipWondow", toRenderInPipWondow);
+
+  document?.body?.append(toRenderInPipWondow);
+
+  pipWindow?.document?.body?.append(toRenderInPipWondow);
+
+
+  // pipWindow?.document?.body?.append(canvas);
+  // pipWindow?.document?.body?.append(canvas1);
 };
