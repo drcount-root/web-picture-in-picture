@@ -23,11 +23,13 @@ const PipComponent = () => {
   }
 
   const enterPip = async () => {
-    console.log("check", videosAll);
+    // console.log("check", videosAll);
 
-    // pipWindow = ctxPip();
+    pipWindow = ctxPip();
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
+    const canvas1 = document.createElement("canvas");
+    const ctx1 = canvas1.getContext("2d");
     // canvas.style.display = "flex";
     // canvas.style.flexDirection = "column";
 
@@ -39,9 +41,6 @@ const PipComponent = () => {
 
       drawFrame();
     });
-
-    const canvas1 = document.createElement("canvas");
-    const ctx1 = canvas1.getContext("2d");
 
     videosAll[1].play().then(() => {
       const drawFrame = () => {
@@ -69,13 +68,16 @@ const PipComponent = () => {
     //   drawFrame();
     // });
 
+    // for appending in body
     document?.body?.append(canvas);
     document?.body?.append(canvas1);
 
-    // pipWindow?.document?.body?.append(canvas);
+    // for appending in pipWindow
+    pipWindow?.document?.body?.append(canvas);
+    pipWindow?.document?.body?.append(canvas1);
   };
 
-  console.log("check", enterPip);
+  // console.log("check", enterPip);
 
   return (
     <>
