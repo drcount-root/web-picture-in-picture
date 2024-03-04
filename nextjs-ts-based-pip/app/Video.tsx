@@ -1,6 +1,6 @@
 import React from "react";
 
-const Video = ({video}: any) => {
+const Video = ({ video }: any) => {
   return (
     <div>
       <video className="video_class" autoPlay muted loop>
@@ -11,3 +11,5 @@ const Video = ({video}: any) => {
 };
 
 export default Video;
+
+// ###########################################################################################

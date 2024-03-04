@@ -26,6 +26,7 @@ const PipComponent = () => {
     // console.log("check", videosAll);
 
     pipWindow = ctxPip();
+
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     const canvas1 = document.createElement("canvas");
@@ -33,24 +34,62 @@ const PipComponent = () => {
     // canvas.style.display = "flex";
     // canvas.style.flexDirection = "column";
 
-    videosAll[0].play().then(() => {
-      const drawFrame = () => {
-        ctx?.drawImage(videosAll[0], 0, 0, canvas.width, canvas.height);
-        requestAnimationFrame(drawFrame);
-      };
+    // videosAll[0].play().then(() => {
+    //   const drawFrame = () => {
+    //     ctx?.drawImage(videosAll[0], 0, 0, canvas.width, canvas.height);
+    //     requestAnimationFrame(drawFrame);
+    //   };
 
-      drawFrame();
-    });
+    //   drawFrame();
+    // });
 
-    videosAll[1].play().then(() => {
-      const drawFrame = () => {
-        ctx1?.drawImage(videosAll[1], 0, 0, canvas1.width, canvas1.height);
+    // videosAll[1].play().then(() => {
+    //   const drawFrame = () => {
+    //     ctx1?.drawImage(videosAll[1], 0, 0, canvas1.width, canvas1.height);
 
-        requestAnimationFrame(drawFrame);
-      };
+    //     requestAnimationFrame(drawFrame);
+    //   };
 
-      drawFrame();
-    });
+    //   drawFrame();
+    // });
+
+    for (let a of [
+      { id: 1, video: videosAll[0] },
+      { id: 2, video: videosAll[1] },
+    ]) {
+      console.log("check", a.video);
+
+      a?.video?.play().then(() => {
+        let theContext: any;
+        let theVideo: any;
+        let w: number;
+        let x: number;
+        let y: number;
+        let z: number;
+
+        if (a?.id === 1 && ctx) {
+          theContext = ctx;
+          theVideo = videosAll[0];
+          w = 0;
+          x = 0;
+          y = canvas.width;
+          z = canvas.height;
+        } else {
+          theContext = ctx1;
+          theVideo = videosAll[1];
+          w = 0;
+          x = 0;
+          y = canvas1.width;
+          z = canvas1.height;
+        }
+        const drawFrame = () => {
+          theContext?.drawImage(theVideo, w, x, y, z);
+          requestAnimationFrame(drawFrame);
+        };
+
+        drawFrame();
+      });
+    }
 
     // videosAll[1].play().then(() => {
     //   const drawFrame = () => {
@@ -97,3 +136,5 @@ const PipComponent = () => {
 };
 
 export default PipComponent;
+
+// ###########################################################################################
