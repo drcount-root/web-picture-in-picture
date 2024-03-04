@@ -1,39 +1,9 @@
-// const canvas = document.createElement("canvas");
-// const ctx = canvas.getContext("2d");
-// canvas.style.display = "flex";
-// canvas.style.flexDirection = "column";
-
-// const mainVideos = document.querySelectorAll(".main_video");
-
-// const enterPip = async () => {
-
-//   // video 1
-//   mainVideos[0].play().then(() => {
-//     const drawFrame = () => {
-//       ctx.drawImage(mainVideos[0], 0, 0, canvas.width, canvas.height);
-//       requestAnimationFrame(drawFrame);
-//     };
-
-//     drawFrame();
-//   });
-
-//   // video 2
-//   mainVideos[1].play().then(() => {
-//     const drawFrame = () => {
-//       ctx.drawImage(mainVideos[1], 0, 0, canvas.width, canvas.height);
-//       requestAnimationFrame(drawFrame);
-//     };
-
-//     drawFrame();
-//   });
-
-//   document.body.append(canvas);
-// };
-
 const canvas = document.createElement("canvas");
 const ctx = canvas.getContext("2d");
-canvas.style.display = "flex";
-canvas.style.flexDirection = "column";
+// canvas.style.display = "flex";
+// canvas.style.flexDirection = "column";
+const canvas1 = document.createElement("canvas");
+const ctx1 = canvas1.getContext("2d");
 
 const mainVideos = document.querySelectorAll(".main_video");
 
@@ -48,7 +18,7 @@ const enterPip = async () => {
   // video 1
   mainVideos[0].play().then(() => {
     const drawFrame1 = () => {
-      ctx.drawImage(mainVideos[0], 0, 0, canvas.width / 2, canvas.height);
+      ctx.drawImage(mainVideos[0], 0, 0, canvas.width, canvas.height);
       requestAnimationFrame(drawFrame1);
     };
 
@@ -58,13 +28,7 @@ const enterPip = async () => {
   // video 2
   mainVideos[1].play().then(() => {
     const drawFrame2 = () => {
-      ctx.drawImage(
-        mainVideos[1],
-        canvas.width / 2,
-        0,
-        canvas.width / 2,
-        canvas.height
-      );
+      ctx1.drawImage(mainVideos[1], 0, 0, canvas1.width, canvas1.height);
       requestAnimationFrame(drawFrame2);
     };
 
@@ -72,6 +36,8 @@ const enterPip = async () => {
   });
 
   document?.body?.append(canvas);
+  document?.body?.append(canvas1);
 
   pipWindow?.document?.body?.append(canvas);
+  pipWindow?.document?.body?.append(canvas1);
 };
