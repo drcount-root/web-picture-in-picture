@@ -28,16 +28,16 @@ const enterPip = async () => {
   });
 
   // video 2
-  mainVideos[1].play().then(() => {
-    const drawFrame2 = () => {
-      ctx1.drawImage(mainVideos[1], 0, 0, canvas1.width, canvas1.height);
-      requestAnimationFrame(drawFrame2);
-    };
+  // mainVideos[1].play().then(() => {
+  //   const drawFrame2 = () => {
+  //     ctx1.drawImage(mainVideos[1], 0, 0, canvas1.width, canvas1.height);
+  //     requestAnimationFrame(drawFrame2);
+  //   };
 
-    drawFrame2();
-  });
+  //   drawFrame2();
+  // });
 
-  document?.body?.append(canvas);
+  // document?.body?.append(canvas);
   // document?.body?.append(canvas1);
 
   pipWindow?.document?.body?.append(canvas);
