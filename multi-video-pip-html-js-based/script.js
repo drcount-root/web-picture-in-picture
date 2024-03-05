@@ -36,4 +36,8 @@ const enterPip = async () => {
   document?.body?.append(canvas);
 
   pipWindow?.document?.body?.append(canvas);
+
+  if(document?.pictureInPictureEnabled){
+    console.log('Yes Picture-In-Picture Enabled');
+  }
 };
