@@ -39,10 +39,9 @@ const enterPip = async () => {
 
   if(document?.pictureInPictureEnabled){
     console.log('Yes Picture-In-Picture Enabled');
+    if(document?.pictureInPictureElement){
+      console.log("document?.pictureInPictureElement", document?.pictureInPictureElement);
+    }
   }
 
-  if(document?.pictureInPictureElement){
-    console.log("document?.pictureInPictureElement", document?.pictureInPictureElement);
-    console.log("Pip Left");
-  }
 };
