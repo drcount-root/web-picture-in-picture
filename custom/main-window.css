@@ -1,0 +1,6 @@
+body {
+  height: 100vh;
+  background-color: var(--color-bg);
+  display: grid;
+  place-content: center;
+}
